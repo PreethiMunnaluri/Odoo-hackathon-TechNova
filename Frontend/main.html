@@ -1,177 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Swap Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .bg-gradient-subtle {
-            background-color: #3b82f6;
-        }
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-        }
-        .bg-white\/5 {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        .animate-slide-up {
-            animation: slideUp 1s ease-in-out;
-        }
-        .animate-scale-in {
-            animation: scaleIn 0.5s ease-in-out;
-        }
-        .btn-bounce:hover {
-            animation: bounce 0.5s;
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes scaleIn {
-            from { 
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to { 
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skill Swap Platform</title>
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); }
+
+    .animate-fade-in { animation: fadeIn 1s ease-in-out; }
+    .animate-slide-up { animation: slideUp 1s ease-in-out; }
+    .animate-scale-in { animation: scaleIn 0.5s ease-in-out; }
+
+    .btn-bounce:hover { animation: bounce 0.5s; }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .carousel-inner img {
+      object-fit: cover;
+      height: 100vh;
+    }
+
+    .carousel-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .carousel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background-color:rgba(0, 0, 0, 0.8);
+    }
+  </style>
 </head>
+
 <body class="font-sans">
-    <div class="min-h-screen bg-gradient-subtle">
-        <!-- Hero Section -->
-        <div class="relative overflow-hidden bg-graient-primary">
-            <div class="max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:px-8">
-                <div class="text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl animate-fade-in">
-                        Swap Skills, Share Knowledge
-                    </h1>
-                    <p class="mt-6 text-lg leading-8 text-white/90 animate-slide-up">
-                        Connect with your community to exchange skills and learn something new. 
-                        From coding to cooking, photography to programming - everyone has something to teach and learn.
-                    </p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6 animate-scale-in">
-                        <a href="/dashboard" class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 transition-colors">
-                            Get Started
-                            <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </a>
-                        <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-white font-medium rounded-md border border-white hover:bg-white/10 transition-colors">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
+  <div class="min-h-screen">
+
+    <!-- Hero Section with Carousel Background -->
+    <div class="relative min-h-[700px] overflow-hidden">
+
+      <!-- Carousel Background -->
+      <div class="carousel-background">
+        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="\Frontend\images\carousel img2.jpg" class="d-block w-100" alt="Tech 1">
             </div>
-            
-            <!-- Decorative background elements -->
-            <div class="absolute inset-0 opacity-20">
-                <div class="h-full w-full bg-white/5 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:60px_60px]"></div>
+            <div class="carousel-item">
+              <img src="\Frontend\images\carousel img1.jpg" class="d-block w-100" alt="Tech 2">
             </div>
+            <div class="carousel-item">
+              <img src="\Frontend\images\carousel img3.jpg" class="d-block w-100" alt="Tech 3">
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Features Section -->
-        <div class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
-                        How It Works
-                    </h2>
-                    <p class="mt-4 text-lg text-gray-600">
-                        Simple steps to start swapping skills with your community
-                    </p>
-                </div>
+      
+      <div class="carousel-overlay"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="skill-card text-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                        <div class="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                            <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Create Your Profile</h3>
-                        <p class="text-gray-600">
-                            List the skills you can teach and what you'd like to learn
-                        </p>
-                    </div>
-
-                    <div class="skill-card text-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                        <div class="mx-auto w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                            <i data-lucide="zap" class="w-6 h-6 text-purple-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Find & Connect</h3>
-                        <p class="text-gray-600">
-                            Browse profiles and send skill swap requests to other users
-                        </p>
-                    </div>
-
-                    <div class="skill-card text-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                        <div class="mx-auto w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                            <i data-lucide="star" class="w-6 h-6 text-yellow-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Learn & Teach</h3>
-                        <p class="text-gray-600">
-                            Meet up, share knowledge, and rate your experience
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:px-8 text-center text-white">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-6xl animate-fade-in">
+          Swap Skills, Share Knowledge
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-white/90 animate-slide-up">
+          Connect with your community to exchange skills and learn something new. 
+          From coding to cooking, photography to programming - everyone has something to teach and learn.
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-x-6 animate-scale-in">
+          <a href="/dashboard" class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 transition-colors">
+            Get Started
+            <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+          </a>
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-white font-medium rounded-md border border-white hover:bg-white/10 transition-colors">
+            Learn More
+          </a>
         </div>
-
-        <!-- CTA Section -->
-        <div class="bg-gray-50 py-16">
-            <div class="max-w-4xl mx-auto text-center px-6">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Ready to Start Learning?
-                </h2>
-                <p class="text-lg text-gray-600 mb-8">
-                    Join our community of skill sharers and discover what you can learn and teach today.
-                </p>
-                <a href="/dashboard" class="btn-bounce inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-md hover:from-blue-700 hover:to-purple-700 transition-colors">
-                    Join the Community
-                    <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center">
-                    <h3 class="text-lg font-semibold mb-2">Skill Swap Platform</h3>
-                    <p class="text-gray-400">
-                        Connecting communities through skill sharing
-                    </p>
-                </div>
-            </div>
-        </footer>
+      </div>
     </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
+    <!-- Features Section -->
+    <div class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+            How It Works
+          </h2>
+          <p class="mt-4 text-lg text-gray-600">
+            Simple steps to start swapping skills with your community
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="skill-card text-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div class="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Create Your Profile</h3>
+            <p class="text-gray-600">
+              List the skills you can teach and what you'd like to learn
+            </p>
+          </div>
+
+          <div class="skill-card text-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div class="mx-auto w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <i data-lucide="zap" class="w-6 h-6 text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Find & Connect</h3>
+            <p class="text-gray-600">
+              Browse profiles and send skill swap requests to other users
+            </p>
+          </div>
+
+          <div class="skill-card text-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div class="mx-auto w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+              <i data-lucide="star" class="w-6 h-6 text-yellow-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Learn & Teach</h3>
+            <p class="text-gray-600">
+              Meet up, share knowledge, and rate your experience
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gray-50 py-16">
+      <div class="max-w-4xl mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          Ready to Start Learning?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Join our community of skill sharers and discover what you can learn and teach today.
+        </p>
+        <a href="/dashboard" class="btn-bounce inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-md hover:from-blue-700 hover:to-purple-700 transition-colors">
+          Join the Community
+          <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <h3 class="text-lg font-semibold mb-2">Skill Swap Platform</h3>
+        <p class="text-gray-400">Connecting communities through skill sharing</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  <!-- Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
