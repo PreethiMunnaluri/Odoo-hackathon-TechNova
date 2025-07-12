@@ -5,41 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body.custom-bg {
+      background: linear-gradient(135deg, #725CAD 0%, #8CCDEB 100%);
+      color: #fff;
+    }
+    .custom-form {
+      background: #fff;
+      border: 2px solid #8CCDEB;
+      color: #111;
+    }
+    .custom-title {
+      color: #111;
+    }
+    .custom-label {
+      color: #111;
+    }
+    .custom-link {
+      color: #111;
+    }
+    .custom-link:hover {
+      color: #8CCDEB;
+    }
+    .custom-btn {
+      background: #725CAD;
+      color: #fff;
+    }
+    .custom-btn:hover {
+      background: #8CCDEB;
+      color: #111;
+    }
+    .custom-input:focus {
+      border-color: #725CAD;
+      box-shadow: 0 0 0 2px #8CCDEB;
+      color: #111;
+      background: #f5f5f5;
+    }
+    .custom-input {
+      color: #111;
+      background: #f5f5f5;
+    }
+    .custom-form input::placeholder {
+      color: #bbb;
+      opacity: 1;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+<body class="custom-bg min-h-screen flex items-center justify-center">
   <div class="w-full max-w-md mx-auto px-4">
-    <form id="signupForm" class="bg-white rounded-xl shadow-lg p-8 space-y-6">
-      <h2 class="text-2xl font-bold text-center text-gray-800">Create Account</h2>
-      <p class="text-center text-gray-500">Sign up to join the Skill Swap community</p>
+    <form id="signupForm" class="custom-form rounded-xl shadow-lg p-8 space-y-6">
+      <h2 class="text-2xl font-bold text-center custom-title">Create Account</h2>
+      <p class="text-center" style="color:#fff">Sign up to join the Skill Swap community</p>
 
       <div>
-        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+        <label for="name" class="block text-sm font-medium custom-label mb-1">Name</label>
         <input type="text" id="name" name="name" required placeholder="Enter your name"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none custom-input" />
       </div>
 
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <label for="email" class="block text-sm font-medium custom-label mb-1">Email</label>
         <input type="email" id="email" name="email" required placeholder="Enter your email"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none custom-input" />
       </div>
 
       <div>
-        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+        <label for="password" class="block text-sm font-medium custom-label mb-1">Password</label>
         <div class="relative">
           <input type="password" id="password" name="password" required placeholder="Create a password"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none custom-input" />
           <button type="button" id="togglePassword"
-            class="absolute right-2 top-2 text-sm text-blue-500 hover:underline">Show</button>
+            class="absolute right-2 top-2 text-sm custom-link hover:underline">Show</button>
         </div>
       </div>
 
       <button type="submit" id="signupBtn"
-        class="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Sign Up</button>
+        class="w-full py-2 custom-btn font-semibold rounded-lg transition">Sign Up</button>
 
-      <div class="text-center text-sm text-gray-600">
+      <div class="text-center text-sm flex flex-col items-center justify-center" style="color:#fff">
         Already have an account?
-        <a href="login.html" class="text-blue-600 font-semibold hover:underline">Sign in</a>
+        <a href="login.html" class="custom-link font-semibold hover:underline mt-1">Sign in</a>
       </div>
     </form>
   </div>
